@@ -7,9 +7,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Controller.h"
-#include "EnhancedInputComponent.h"
-#include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "InteractInterface.h"
+#include "Kismet/KismetMathLibrary.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -59,6 +59,7 @@ AUbisoftGameJamCharacter::AUbisoftGameJamCharacter()
 	
 }
 
+
 void AUbisoftGameJamCharacter::BeginPlay()
 {
 	// Call the base class  
@@ -79,6 +80,10 @@ void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 	float Speed = MeshComponent->GetPhysicsLinearVelocity().Length();
 	GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Speed is %f"),Speed));
+	if (LookOutTargetMesh)
+	{
+		MoveToTargetLocation(LookOutTargetMesh, DeltaSeconds);
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -87,16 +92,20 @@ void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
 void AUbisoftGameJamCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	// Set up action bindings
-	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent)) {
+	EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent);
+	if (EnhancedInputComponent) {
 		
 		// Jumping
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::JumpUp);
+		JumpBinding = &EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::JumpUp);
 
 		// Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
+		MoveBinding = &EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::Look);
+		
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Interact);
+		EnhancedInputComponent->BindAction(QuiteInteractAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::QuiteInteraction);
 	}
 	else
 	{
@@ -159,3 +168,111 @@ void AUbisoftGameJamCharacter::Look(const FInputActionValue& Value)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+
+void AUbisoftGameJamCharacter::Interact(const FInputActionValue& Value)
+{
+	if (bIsReadyToLeap)
+	{
+		
+	}
+	if (CurrInteractActor)
+	{
+		if (CurrInteractActor->GetClass()->ImplementsInterface(UInteractInterface::StaticClass()))
+		{
+			IInteractInterface::Execute_Interact(CurrInteractActor);
+		}
+	}
+}
+
+void AUbisoftGameJamCharacter::QuiteInteraction(const FInputActionValue& Value)
+{
+	
+}
+
+
+void AUbisoftGameJamCharacter::RemoveJumpMove()
+{
+	if (EnhancedInputComponent)
+	{
+		GetWorld()->GetFirstPlayerController()->InputComponent;
+		EnhancedInputComponent->RemoveBindingByHandle(JumpBinding->GetHandle());
+		EnhancedInputComponent->RemoveBindingByHandle(MoveBinding->GetHandle());
+	}
+}
+
+void AUbisoftGameJamCharacter::ResetJumpMove()
+{
+	if (EnhancedInputComponent)
+	{
+		// Jumping
+		JumpBinding = &EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::JumpUp);
+
+		// Moving
+		MoveBinding = &EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
+	}
+}
+
+void AUbisoftGameJamCharacter::MoveToTargetLocation(UStaticMeshComponent* TargetMeshRef, float DeltaTime)
+{
+	if (LookOutTargetMesh)
+	{
+		const FVector CurrLocation = MeshComponent->GetComponentLocation();
+		const FVector TargetLocation = TargetMeshRef->GetComponentLocation();
+		const FRotator TargetRotation = TargetMeshRef->GetComponentRotation();
+		FVector Direction = TargetLocation - CurrLocation;
+		if (Direction.Length() <= 0.3)
+		{
+			RemoveUI();
+			CreateUI(LeapUI);
+			LookOutTargetMesh = nullptr;
+			bIsReadyToLeap = true;
+			return;
+		}
+		Direction.Normalize();
+		const FVector NextLocation = CurrLocation + Direction * ApproachingSpeed * DeltaTime;
+		const FRotator NextRotation = UKismetMathLibrary::RInterpTo(MeshComponent->GetComponentRotation(),TargetRotation, DeltaTime, RotateSpeed);
+		MeshComponent->SetWorldLocation(NextLocation);
+		MeshComponent->SetWorldRotation(NextRotation);
+	}
+	else
+	{
+		LookOutTargetMesh = TargetMeshRef;
+		MeshComponent->SetSimulatePhysics(false);
+	}
+}
+
+void AUbisoftGameJamCharacter::CreateUI(TSubclassOf<UUserWidget> CreateUI)
+{
+	if (CreateUI)
+	{
+		WidgetInstance = CreateWidget(GetWorld(), CreateUI);
+	}
+	if (WidgetInstance)
+	{
+		WidgetInstance->AddToViewport();
+	}
+}
+
+void AUbisoftGameJamCharacter::RemoveUI()
+{
+	if (WidgetInstance)
+	{
+		WidgetInstance->RemoveFromParent();
+		WidgetInstance = nullptr;
+	}
+}
+
+/*
+ * Getters and Setters
+ */
+AActor* AUbisoftGameJamCharacter::GetCurrInteractActor()
+{
+	return CurrInteractActor;
+}
+
+void AUbisoftGameJamCharacter::SetCurrInteractActor(AActor* NewActor)
+{
+	CurrInteractActor = NewActor;
+}
+
+

@@ -4,7 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
 #include "Logging/LogMacros.h"
+#include "Blueprint/UserWidget.h"
 #include "UbisoftGameJamCharacter.generated.h"
 
 class USpringArmComponent;
@@ -44,13 +47,42 @@ class AUbisoftGameJamCharacter : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+	/** Interact Input Action */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* InteractAction;
+
+	/** Quit Interact Input Action */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* QuiteInteractAction;
+
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* MeshComponent;
+
+	UPROPERTY(EditAnywhere)
+	double ApproachingSpeed = 50.f;
+
+	UPROPERTY(EditAnywhere)
+	double RotateSpeed = 0.5f;
+
 
 public:
 	AUbisoftGameJamCharacter();
 
-	
+	void RemoveJumpMove();
+
+	void ResetJumpMove();
+
+	void MoveToTargetLocation(UStaticMeshComponent* TargetMeshRef, float DeltaTime);
+
+	void CreateUI(TSubclassOf<UUserWidget> CreateUI);
+
+	void RemoveUI();
+
+	/*
+	 * Getters and Setters
+	 */
+	AActor* GetCurrInteractActor();
+	void SetCurrInteractActor(AActor* NewActor);
 
 protected:
 
@@ -61,7 +93,31 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
-			
+
+	void Interact(const FInputActionValue& Value);
+	void QuiteInteraction(const FInputActionValue& Value);
+
+	AActor* CurrInteractActor;
+
+	//Use those two to unbind the Move and jump function
+	FEnhancedInputActionEventBinding* MoveBinding;
+	FEnhancedInputActionEventBinding* JumpBinding;
+
+	UEnhancedInputComponent* EnhancedInputComponent;
+
+	//Use this as the target to make our character approach to the look out
+	UStaticMeshComponent* LookOutTargetMesh;
+
+	//Use this to store a ref of the UI that we created before
+	UUserWidget* WidgetInstance;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> LeapUI;
+
+	bool bIsReadyToLeap = false;
+
+	UPROPERTY(EditAnywhere)
+	
 
 protected:
 	// APawn interface
