@@ -115,8 +115,6 @@ protected:
 	TSubclassOf<UUserWidget> LeapUI;
 
 	bool bIsReadyToLeap = false;
-
-	UPROPERTY(EditAnywhere)
 	
 
 protected:
