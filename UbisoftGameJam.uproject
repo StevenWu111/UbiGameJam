@@ -7,7 +7,10 @@
 		{
 			"Name": "UbisoftGameJam",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	],
 	"Plugins": [
@@ -21,6 +24,13 @@
 		{
 			"Name": "Water",
 			"Enabled": true
+		},
+		{
+			"Name": "MotoricaStudio",
+			"Enabled": false,
+			"SupportedTargetPlatforms": [
+				"Win64"
+			]
 		}
 	]
 }

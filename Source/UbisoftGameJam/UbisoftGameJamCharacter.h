@@ -8,6 +8,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "Logging/LogMacros.h"
 #include "Blueprint/UserWidget.h"
+#include "Runtime/LevelSequence/Public/LevelSequence.h"
 #include "UbisoftGameJamCharacter.generated.h"
 
 class USpringArmComponent;
@@ -54,16 +55,16 @@ class AUbisoftGameJamCharacter : public ACharacter
 	/** Quit Interact Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* QuiteInteractAction;
+	
+	UPROPERTY(EditAnywhere)
+	double ApproachingSpeed = 70.f;
 
 	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* MeshComponent;
+	double RotateSpeed = 1.0f;
+
 
 	UPROPERTY(EditAnywhere)
-	double ApproachingSpeed = 50.f;
-
-	UPROPERTY(EditAnywhere)
-	double RotateSpeed = 0.5f;
-
+	USkeletalMeshComponent* MeshComponent;
 
 public:
 	AUbisoftGameJamCharacter();
@@ -77,6 +78,7 @@ public:
 	void CreateUI(TSubclassOf<UUserWidget> CreateUI);
 
 	void RemoveUI();
+	
 
 	/*
 	 * Getters and Setters
@@ -115,7 +117,13 @@ protected:
 	TSubclassOf<UUserWidget> LeapUI;
 
 	bool bIsReadyToLeap = false;
+
+	UPROPERTY(EditAnywhere)
+	ULevelSequence* LeapSeq;
+
 	
+	UFUNCTION()
+	void OnSequenceStop();
 
 protected:
 	// APawn interface
