@@ -9,7 +9,10 @@
 #include "GameFramework/Controller.h"
 #include "InputActionValue.h"
 #include "InteractInterface.h"
+#include "LevelSequenceActor.h"
+#include "UbiPlayerController.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -25,9 +28,6 @@ AUbisoftGameJamCharacter::AUbisoftGameJamCharacter()
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
-	
-	MeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
-	MeshComponent->SetupAttachment(GetRootComponent());
 
 	// Configure character movement
 	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
@@ -41,6 +41,9 @@ AUbisoftGameJamCharacter::AUbisoftGameJamCharacter()
 	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.0f;
+
+	MeshComponent = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MeshComp"));
+	RootComponent = MeshComponent;
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
@@ -56,7 +59,8 @@ AUbisoftGameJamCharacter::AUbisoftGameJamCharacter()
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
 
-	
+
+
 }
 
 
@@ -66,7 +70,7 @@ void AUbisoftGameJamCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	//Add Input Mapping Context
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	if (const APlayerController* PlayerController = Cast<APlayerController>(Controller))
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
@@ -78,7 +82,7 @@ void AUbisoftGameJamCharacter::BeginPlay()
 void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-	float Speed = MeshComponent->GetPhysicsLinearVelocity().Length();
+	const float Speed = MeshComponent->GetPhysicsLinearVelocity().Length();
 	GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Speed is %f"),Speed));
 	if (LookOutTargetMesh)
 	{
@@ -139,9 +143,10 @@ void AUbisoftGameJamCharacter::Move(const FInputActionValue& Value)
 	} */
 	if (MeshComponent)
 	{
-		FVector UpDirection = FollowCamera->GetForwardVector();
-		UpDirection.Z = FMath::RandRange(-0.2,0.2);
-		MeshComponent->AddImpulse(UpDirection * 0.5);
+		const FVector ImpulseLocation = FollowCamera->GetComponentLocation();
+		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(500);
+		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 500, 100,RIF_Linear, true);
 	}
 }
 
@@ -149,10 +154,10 @@ void AUbisoftGameJamCharacter::JumpUp(const FInputActionValue& Value)
 {
 	if (MeshComponent)
 	{
-		FVector UpDirection = FVector(0,0,1);
-		UpDirection.X = FMath::RandRange(-0.2,0.2);
-		UpDirection.Y = FMath::RandRange(-0.2,0.2);
-		MeshComponent->AddImpulse(UpDirection * 0.5);
+		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() - FVector(0,0,200);
+		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(400);
+		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 400, 100,RIF_Linear, true);
 	}
 }
 
@@ -171,9 +176,17 @@ void AUbisoftGameJamCharacter::Look(const FInputActionValue& Value)
 
 void AUbisoftGameJamCharacter::Interact(const FInputActionValue& Value)
 {
-	if (bIsReadyToLeap)
+	if (bIsReadyToLeap && LeapSeq)
 	{
-		
+		ALevelSequenceActor* SequenceActor;
+		if (ULevelSequencePlayer* SeqPlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(GetWorld(),LeapSeq,FMovieSceneSequencePlaybackSettings(), SequenceActor))
+		{
+			MeshComponent->SetVisibility(false);
+			SeqPlayer->OnFinished.AddDynamic(this, &AUbisoftGameJamCharacter::OnSequenceStop);
+			SeqPlayer->Play();
+		}
+		this->RemoveUI();
+		return;
 	}
 	if (CurrInteractActor)
 	{
@@ -186,7 +199,14 @@ void AUbisoftGameJamCharacter::Interact(const FInputActionValue& Value)
 
 void AUbisoftGameJamCharacter::QuiteInteraction(const FInputActionValue& Value)
 {
-	
+	if (bIsReadyToLeap)
+	{
+		bIsReadyToLeap = false;
+		this->RemoveUI();
+		MeshComponent->SetSimulatePhysics(true);
+		this->ResetJumpMove();
+		this->JumpUp(Value);
+	}
 }
 
 
@@ -216,11 +236,11 @@ void AUbisoftGameJamCharacter::MoveToTargetLocation(UStaticMeshComponent* Target
 {
 	if (LookOutTargetMesh)
 	{
-		const FVector CurrLocation = MeshComponent->GetComponentLocation();
+		const FVector CurrLocation =MeshComponent->GetComponentLocation();
 		const FVector TargetLocation = TargetMeshRef->GetComponentLocation();
 		const FRotator TargetRotation = TargetMeshRef->GetComponentRotation();
 		FVector Direction = TargetLocation - CurrLocation;
-		if (Direction.Length() <= 0.3)
+		if (Direction.Length() <= 0.3 && TargetRotation.Equals(MeshComponent->GetComponentRotation(), 1))
 		{
 			RemoveUI();
 			CreateUI(LeapUI);
@@ -262,6 +282,7 @@ void AUbisoftGameJamCharacter::RemoveUI()
 	}
 }
 
+
 /*
  * Getters and Setters
  */
@@ -273,6 +294,15 @@ AActor* AUbisoftGameJamCharacter::GetCurrInteractActor()
 void AUbisoftGameJamCharacter::SetCurrInteractActor(AActor* NewActor)
 {
 	CurrInteractActor = NewActor;
+}
+
+
+void AUbisoftGameJamCharacter::OnSequenceStop()
+{
+	if (AUbiPlayerController* CurrPlayerController = Cast<AUbiPlayerController>(this->GetController()))
+	{
+		CurrPlayerController->SwitchCharacter(false);
+	}
 }
 
 

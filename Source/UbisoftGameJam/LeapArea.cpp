@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "LeapArea.h"
+
+#include "UbiPlayerController.h"
 #include "UbisoftGameJamCharacter.h"
 
 // Sets default values
@@ -47,6 +49,11 @@ void ALeapArea::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor*
 		}
 		PlayerCharacter = Player;
 		Player->SetCurrInteractActor(this);
+
+		if (AUbiPlayerController* PlayerController = Cast<AUbiPlayerController>(Player->GetController()))
+		{
+			PlayerController->SetCharacterWithPlasticBag(CharacterAfterLeap);
+		}
 	}
 }
 
