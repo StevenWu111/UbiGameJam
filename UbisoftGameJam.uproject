@@ -27,7 +27,7 @@
 		},
 		{
 			"Name": "MotoricaStudio",
-			"Enabled": false,
+			"Enabled": true,
 			"SupportedTargetPlatforms": [
 				"Win64"
 			]
