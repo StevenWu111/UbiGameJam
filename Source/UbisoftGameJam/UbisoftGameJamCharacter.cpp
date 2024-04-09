@@ -77,6 +77,7 @@ void AUbisoftGameJamCharacter::BeginPlay()
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
+	MeshComponent->OnComponentHit.AddDynamic(this, &AUbisoftGameJamCharacter::OnComponentHit);
 }
 
 void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
@@ -272,6 +273,12 @@ AActor* AUbisoftGameJamCharacter::GetCurrInteractActor()
 void AUbisoftGameJamCharacter::SetCurrInteractActor(AActor* NewActor)
 {
 	CurrInteractActor = NewActor;
+}
+
+void AUbisoftGameJamCharacter::OnComponentHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
+	UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
+{
+	
 }
 
 
