@@ -58,9 +58,7 @@ AUbisoftGameJamCharacter::AUbisoftGameJamCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
-
-
-
+	
 }
 
 
@@ -78,6 +76,10 @@ void AUbisoftGameJamCharacter::BeginPlay()
 		}
 	}
 	MeshComponent->OnComponentHit.AddDynamic(this, &AUbisoftGameJamCharacter::OnComponentHit);
+
+	RespawnLocation = this->GetActorLocation();
+
+	CurrTimerCount = RespawnTime;
 }
 
 void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
@@ -88,6 +90,10 @@ void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
 	if (LookOutTargetMesh)
 	{
 		MoveToTargetLocation(LookOutTargetMesh, DeltaSeconds);
+	}
+	if (InvalidZoneTimerHandle.IsValid())
+	{
+		CurrTimerCount -= DeltaSeconds;
 	}
 }
 
@@ -105,6 +111,9 @@ void AUbisoftGameJamCharacter::SetupPlayerInputComponent(UInputComponent* Player
 
 		// Moving
 		MoveBinding = &EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
+		EnhancedInputComponent->BindAction(MoveBackAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveBack);
+		EnhancedInputComponent->BindAction(MoveLeftAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveLeft);
+		EnhancedInputComponent->BindAction(MoveRightAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveRight);
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::Look);
@@ -126,6 +135,46 @@ void AUbisoftGameJamCharacter::Move(const FInputActionValue& Value)
 		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(500);
 		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
 		MeshComponent->AddRadialImpulse(ImpulseLocation, 500, 100,RIF_Linear, true);
+	}
+}
+
+void AUbisoftGameJamCharacter::MoveBack(const FInputActionValue& Value)
+{
+	if (MeshComponent)
+	{
+		const FVector CameraLocation = FollowCamera->GetComponentLocation();
+		FVector Direction = MeshComponent->GetComponentLocation() - CameraLocation;
+		Direction.Normalize();
+		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() + Direction * 100;
+		FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
+		DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 100,RIF_Linear, true);
+	}
+}
+
+void AUbisoftGameJamCharacter::MoveLeft(const FInputActionValue& Value)
+{
+	if (MeshComponent)
+	{
+		FVector Direction = -FollowCamera->GetRightVector();
+		Direction.Normalize();
+		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() + Direction * 100;
+		FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
+		DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 100,RIF_Linear, true);
+	}
+}
+
+void AUbisoftGameJamCharacter::MoveRight(const FInputActionValue& Value)
+{
+	if (MeshComponent)
+	{
+		FVector Direction = FollowCamera->GetRightVector();
+		Direction.Normalize();
+		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() + Direction * 100;
+		FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
+		DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 100,RIF_Linear, true);
 	}
 }
 
@@ -258,6 +307,39 @@ void AUbisoftGameJamCharacter::RemoveUI()
 	{
 		WidgetInstance->RemoveFromParent();
 		WidgetInstance = nullptr;
+	}
+}
+
+void AUbisoftGameJamCharacter::EnterInvalidZone()
+{
+	if (!InvalidZoneTimerHandle.IsValid())
+	{
+		GetWorldTimerManager().SetTimer(InvalidZoneTimerHandle,this,&AUbisoftGameJamCharacter::Respawn,RespawnTime,false,RespawnTime);
+		this->CreateUI(InvalidZoneUI);
+	}
+}
+
+void AUbisoftGameJamCharacter::ExitInvalidZone()
+{
+	if (OverlappingInvalidZoneCount <= 0)
+	{
+		//Make sure it back to zero
+		OverlappingInvalidZoneCount = 0;
+		GetWorldTimerManager().ClearTimer(InvalidZoneTimerHandle);
+		RemoveUI();
+		CurrTimerCount = RespawnTime;
+	}
+}
+
+void AUbisoftGameJamCharacter::Respawn()
+{
+	if (!RespawnLocation.IsZero())
+	{
+		MeshComponent->SetSimulatePhysics(false);
+		MeshComponent->SetWorldLocation(RespawnLocation);
+		MeshComponent->SetSimulatePhysics(true);
+		RemoveUI();
+		CurrTimerCount = RespawnTime;
 	}
 }
 
