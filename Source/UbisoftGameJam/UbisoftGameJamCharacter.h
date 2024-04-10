@@ -43,6 +43,12 @@ class AUbisoftGameJamCharacter : public ACharacter
 	/** Move Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* MoveAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* MoveBackAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* MoveLeftAction;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* MoveRightAction;
 
 	/** Look Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
@@ -78,23 +84,32 @@ public:
 	void CreateUI(TSubclassOf<UUserWidget> CreateUI);
 
 	void RemoveUI();
-	
 
-	/*
-	 * Getters and Setters
-	 */
-	AActor* GetCurrInteractActor();
-	void SetCurrInteractActor(AActor* NewActor);
+	void EnterInvalidZone();
+	void ExitInvalidZone();
+
+	void Respawn();
+
+	int32 OverlappingInvalidZoneCount = 0;
+
 
 	UFUNCTION()
 	void OnComponentHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+	
 
-	UPROPERTY(EditAnywhere)
-	FVector RespawnLocation;
+	float CurrTimerCount = 5.0f;
+	/*
+	* Getters and Setters
+	*/
+	AActor* GetCurrInteractActor();
+	void SetCurrInteractActor(AActor* NewActor);
 protected:
 
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
+	void MoveBack(const FInputActionValue& Value);
+	void MoveLeft(const FInputActionValue& Value);
+	void MoveRight(const FInputActionValue& Value);
 
 	void JumpUp(const FInputActionValue& Value);
 
@@ -121,11 +136,19 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UUserWidget> LeapUI;
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> InvalidZoneUI;
+
 	bool bIsReadyToLeap = false;
 
 	UPROPERTY(EditAnywhere)
 	ULevelSequence* LeapSeq;
 
+	FTimerHandle InvalidZoneTimerHandle;
+
+	FVector RespawnLocation;
+	UPROPERTY(EditAnywhere)
+	float RespawnTime = 10.0f;
 	
 	UFUNCTION()
 	void OnSequenceStop();
