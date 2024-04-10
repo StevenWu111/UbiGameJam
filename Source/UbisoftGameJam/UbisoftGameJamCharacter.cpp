@@ -134,7 +134,7 @@ void AUbisoftGameJamCharacter::Move(const FInputActionValue& Value)
 		const FVector ImpulseLocation = FollowCamera->GetComponentLocation();
 		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(500);
 		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
-		MeshComponent->AddRadialImpulse(ImpulseLocation, 500, 100,RIF_Linear, true);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 600, 120,RIF_Linear, true);
 	}
 }
 
@@ -185,7 +185,7 @@ void AUbisoftGameJamCharacter::JumpUp(const FInputActionValue& Value)
 		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() - FVector(0,0,200);
 		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(400);
 		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
-		MeshComponent->AddRadialImpulse(ImpulseLocation, 400, 100,RIF_Linear, true);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 400, 130,RIF_Linear, true);
 	}
 }
 
