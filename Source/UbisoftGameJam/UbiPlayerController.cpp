@@ -5,11 +5,11 @@
 
 void AUbiPlayerController::SwitchCharacter(bool bSwitchToBagCharacter)
 {
+	this->UnPossess();
 	if (bSwitchToBagCharacter)
 	{
 		if (PlasticBagCharacter)
 		{
-			this->UnPossess();
 			this->Possess(PlasticBagCharacter);
 		}
 	}
@@ -17,9 +17,22 @@ void AUbiPlayerController::SwitchCharacter(bool bSwitchToBagCharacter)
 	{
 		if (CharacterWithPlasticBag)
 		{
-			this->UnPossess();
 			this->Possess(CharacterWithPlasticBag);
 		}
+	}
+}
+
+void AUbiPlayerController::SetupCharactersWhenSwitchBack(FVector BagLocation)
+{
+	if (PlasticBagCharacter && CharacterWithPlasticBag)
+	{
+		Location = BagLocation;
+		PlasticBagCharacter->SetLookOutComponent(nullptr);
+		PlasticBagCharacter->SetVisibilityNPhysics(false);
+		PlasticBagCharacter->SetMeshLocation(Location);
+		PlasticBagCharacter->SetVisibilityNPhysics(true);
+		SwitchCharacter(true);
+		//GetWorldTimerManager().SetTimer(Timer, this, &AUbiPlayerController::SetBagCharacterLocation, 1, false, 1);
 	}
 }
 
@@ -32,4 +45,9 @@ void AUbiPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	PlasticBagCharacter = Cast<AUbisoftGameJamCharacter>(this->GetPawn());
+}
+
+void AUbiPlayerController::SetBagCharacterLocation()
+{
+	
 }

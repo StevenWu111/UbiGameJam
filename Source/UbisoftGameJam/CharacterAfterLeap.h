@@ -40,6 +40,7 @@ class UBISOFTGAMEJAM_API ACharacterAfterLeap : public ACharacter
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* LookAction;
 
+
 public:
 	// Sets default values for this character's properties
 	ACharacterAfterLeap();

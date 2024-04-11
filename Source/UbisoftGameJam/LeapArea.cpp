@@ -23,7 +23,6 @@ void ALeapArea::Interact_Implementation()
 	IInteractInterface::Interact_Implementation();
 	if (PlayerCharacter)
 	{
-		PlayerCharacter->RemoveJumpMove();
 		PlayerCharacter->MoveToTargetLocation(MeshComponent, 0.1);
 		PlayerCharacter->RemoveUI();
 	}

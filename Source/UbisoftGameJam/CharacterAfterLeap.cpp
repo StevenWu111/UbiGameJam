@@ -7,6 +7,7 @@
 #include "GameFramework/SpringArmComponent.h"
 
 
+
 // Sets default values
 ACharacterAfterLeap::ACharacterAfterLeap()
 {

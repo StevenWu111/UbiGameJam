@@ -97,6 +97,26 @@ void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
 	}
 }
 
+void AUbisoftGameJamCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+	//Add Input Mapping Context
+	if (const APlayerController* PlayerController = Cast<APlayerController>(NewController))
+	{
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->RemoveAllPlayerMappedKeys();
+			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+		}
+	}
+}
+
+void AUbisoftGameJamCharacter::SetMeshLocation(FVector Location)
+{
+	MeshComponent->SetWorldLocation(Location);
+	//JumpUp(NULL);
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
@@ -107,10 +127,10 @@ void AUbisoftGameJamCharacter::SetupPlayerInputComponent(UInputComponent* Player
 	if (EnhancedInputComponent) {
 		
 		// Jumping
-		JumpBinding = &EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::JumpUp);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::JumpUp);
 
 		// Moving
-		MoveBinding = &EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
 		EnhancedInputComponent->BindAction(MoveBackAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveBack);
 		EnhancedInputComponent->BindAction(MoveLeftAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveLeft);
 		EnhancedInputComponent->BindAction(MoveRightAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveRight);
@@ -214,6 +234,7 @@ void AUbisoftGameJamCharacter::Interact(const FInputActionValue& Value)
 			SeqPlayer->Play();
 		}
 		this->RemoveUI();
+		bIsReadyToLeap = false;
 		return;
 	}
 	if (CurrInteractActor)
@@ -221,6 +242,8 @@ void AUbisoftGameJamCharacter::Interact(const FInputActionValue& Value)
 		if (CurrInteractActor->GetClass()->ImplementsInterface(UInteractInterface::StaticClass()))
 		{
 			IInteractInterface::Execute_Interact(CurrInteractActor);
+			CurrInteractActor->Destroy();
+			CurrInteractActor = nullptr;
 		}
 	}
 }
@@ -232,31 +255,7 @@ void AUbisoftGameJamCharacter::QuiteInteraction(const FInputActionValue& Value)
 		bIsReadyToLeap = false;
 		this->RemoveUI();
 		MeshComponent->SetSimulatePhysics(true);
-		this->ResetJumpMove();
 		this->JumpUp(Value);
-	}
-}
-
-
-void AUbisoftGameJamCharacter::RemoveJumpMove()
-{
-	if (EnhancedInputComponent)
-	{
-		GetWorld()->GetFirstPlayerController()->InputComponent;
-		EnhancedInputComponent->RemoveBindingByHandle(JumpBinding->GetHandle());
-		EnhancedInputComponent->RemoveBindingByHandle(MoveBinding->GetHandle());
-	}
-}
-
-void AUbisoftGameJamCharacter::ResetJumpMove()
-{
-	if (EnhancedInputComponent)
-	{
-		// Jumping
-		JumpBinding = &EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::JumpUp);
-
-		// Moving
-		MoveBinding = &EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
 	}
 }
 
@@ -344,6 +343,12 @@ void AUbisoftGameJamCharacter::Respawn()
 }
 
 
+void AUbisoftGameJamCharacter::SetVisibilityNPhysics(bool bIsEnable)
+{
+	MeshComponent->SetSimulatePhysics(bIsEnable);
+	MeshComponent->SetVisibility(bIsEnable);
+}
+
 /*
  * Getters and Setters
  */
@@ -357,8 +362,13 @@ void AUbisoftGameJamCharacter::SetCurrInteractActor(AActor* NewActor)
 	CurrInteractActor = NewActor;
 }
 
+void AUbisoftGameJamCharacter::SetLookOutComponent(UStaticMeshComponent* LookOutComponent)
+{
+	LookOutTargetMesh = LookOutComponent;
+}
+
 void AUbisoftGameJamCharacter::OnComponentHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
-	UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
+                                              UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
 	
 }

@@ -75,10 +75,6 @@ class AUbisoftGameJamCharacter : public ACharacter
 public:
 	AUbisoftGameJamCharacter();
 
-	void RemoveJumpMove();
-
-	void ResetJumpMove();
-
 	void MoveToTargetLocation(UStaticMeshComponent* TargetMeshRef, float DeltaTime);
 
 	void CreateUI(TSubclassOf<UUserWidget> CreateUI);
@@ -98,11 +94,15 @@ public:
 	
 
 	float CurrTimerCount = 5.0f;
+
+	void SetVisibilityNPhysics(bool bIsEnable);
 	/*
 	* Getters and Setters
 	*/
 	AActor* GetCurrInteractActor();
 	void SetCurrInteractActor(AActor* NewActor);
+
+	void SetLookOutComponent(UStaticMeshComponent* LookOutComponent);
 protected:
 
 	/** Called for movement input */
@@ -120,10 +120,6 @@ protected:
 	void QuiteInteraction(const FInputActionValue& Value);
 
 	AActor* CurrInteractActor;
-
-	//Use those two to unbind the Move and jump function
-	FEnhancedInputActionEventBinding* MoveBinding;
-	FEnhancedInputActionEventBinding* JumpBinding;
 
 	UEnhancedInputComponent* EnhancedInputComponent;
 
@@ -153,6 +149,8 @@ protected:
 	UFUNCTION()
 	void OnSequenceStop();
 
+
+
 protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -167,5 +165,9 @@ public:
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
 	virtual void Tick(float DeltaSeconds) override;
+
+	void PossessedBy(AController* NewController) override;
+
+	void SetMeshLocation(FVector Location);
 };
 

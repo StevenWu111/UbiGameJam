@@ -19,7 +19,15 @@ class UBISOFTGAMEJAM_API AUbiPlayerController : public APlayerController
 public:
 	void SwitchCharacter(bool bSwitchToBagCharacter);
 
+	void SetupCharactersWhenSwitchBack(FVector BagLocation);
+
 	void SetCharacterWithPlasticBag(ACharacterAfterLeap* CharacterInWorld);
+
+	FTimerHandle Timer;
+
+	void SetBagCharacterLocation();
+
+	FVector Location;
 
 protected:
 	AUbisoftGameJamCharacter* PlasticBagCharacter;
@@ -28,3 +36,5 @@ protected:
 
 	virtual void BeginPlay() override;;
 };
+
+

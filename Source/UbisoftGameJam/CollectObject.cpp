@@ -4,6 +4,7 @@
 #include "CollectObject.h"
 
 #include "CharacterAfterLeap.h"
+#include "UbiPlayerController.h"
 #include "Blueprint/UserWidget.h"
 
 // Sets default values
@@ -32,9 +33,18 @@ void ACollectObject::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AA
 	{
 		if (VideoUI)
 		{
-			UUserWidget* WidgetInstance = CreateWidget(GetWorld(), VideoUI);
-			WidgetInstance->AddToViewport();
+			//UUserWidget* WidgetInstance = CreateWidget(GetWorld(), VideoUI);
+			//WidgetInstance->AddToViewport();
+			GetWorldTimerManager().SetTimer(TimerHandle, this, &ACollectObject::BackToBag, TimeGap, false, TimeGap);
 		}
+	}
+}
+
+void ACollectObject::BackToBag()
+{
+	if (AUbiPlayerController* CurrPlayerController = Cast<AUbiPlayerController>( GetWorld()->GetFirstPlayerController()))
+	{
+		CurrPlayerController->SetupCharactersWhenSwitchBack(this->GetActorLocation() + FVector(0,0,500));
 	}
 }
 
