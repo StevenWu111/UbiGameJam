@@ -32,6 +32,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	ACharacterAfterLeap* CharacterAfterLeap;
 
+	UPROPERTY(EditAnywhere)
+	AActor* CharacterTemp;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -41,6 +44,14 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	UStaticMeshComponent* MeshComponent;
+
+	UPROPERTY(EditAnywhere)
+	ULevelSequence* LeapSeq;
+
+	FTimerHandle Timer;
+
+	UPROPERTY(EditAnywhere)
+	float TimeGap = 2;
 	
 	
 	UFUNCTION()

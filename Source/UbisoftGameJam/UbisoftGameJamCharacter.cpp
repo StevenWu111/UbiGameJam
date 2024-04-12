@@ -1,6 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "UbisoftGameJamCharacter.h"
+
+#include "BirdNest.h"
 #include "Engine/LocalPlayer.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -232,6 +234,7 @@ void AUbisoftGameJamCharacter::Interact(const FInputActionValue& Value)
 			MeshComponent->SetVisibility(false);
 			SeqPlayer->OnFinished.AddDynamic(this, &AUbisoftGameJamCharacter::OnSequenceStop);
 			SeqPlayer->Play();
+			GetWorldTimerManager().SetTimer(TimerAfterLeap, this, &AUbisoftGameJamCharacter::SetupSwitchCharacter, LeapTimeGap, false, LeapTimeGap);
 		}
 		this->RemoveUI();
 		bIsReadyToLeap = false;
@@ -378,10 +381,29 @@ void AUbisoftGameJamCharacter::OnComponentHit(UPrimitiveComponent* HitComponent,
 	{
 		return;
 	}
+	if (const ABirdNest* Nest = Cast<ABirdNest>(OtherActor))
+	{
+		ALevelSequenceActor* SequenceActor;
+		if (ULevelSequencePlayer* SeqPlayer = ULevelSequencePlayer::CreateLevelSequencePlayer(GetWorld(),Nest->NestDropSeq,FMovieSceneSequencePlaybackSettings(), SequenceActor))
+		{
+			MeshComponent->SetSimulatePhysics(false);
+			SeqPlayer->Play();
+			SeqPlayer->OnFinished.AddDynamic(this, &AUbisoftGameJamCharacter::OnNestSequenceStop);
+		}
+		return;
+	}
 	GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Died")));
 	
 }
 
+
+void AUbisoftGameJamCharacter::SetupSwitchCharacter()
+{
+	if (LeapActorTemp)
+	{
+		LeapActorTemp -> Destroy();
+	}
+}
 
 void AUbisoftGameJamCharacter::OnSequenceStop()
 {
@@ -389,6 +411,11 @@ void AUbisoftGameJamCharacter::OnSequenceStop()
 	{
 		CurrPlayerController->SwitchCharacter(false);
 	}
+}
+
+void AUbisoftGameJamCharacter::OnNestSequenceStop()
+{
+	MeshComponent -> SetSimulatePhysics(true);
 }
 
 

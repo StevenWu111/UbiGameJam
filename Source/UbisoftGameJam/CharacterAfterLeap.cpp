@@ -48,6 +48,11 @@ ACharacterAfterLeap::ACharacterAfterLeap()
 
 }
 
+void ACharacterAfterLeap::SetVisibility(bool bIsVisible)
+{
+	GetMesh()->SetVisibility(true);
+}
+
 // Called when the game starts or when spawned
 void ACharacterAfterLeap::BeginPlay()
 {
