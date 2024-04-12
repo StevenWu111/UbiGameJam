@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/BoxComponent.h"
+#include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
+#include "LevelSequenceActor.h"
 #include "BirdNest.generated.h"
 
 UCLASS()

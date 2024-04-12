@@ -10,13 +10,50 @@
   <component name="ChangeListManager">
     <list default="true" id="de21b9a3-3d3c-4955-81e6-1f265d18f68b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1_Physics.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1_Physics.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Map/Land.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Map/Land.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_116.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_116.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_119.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_119.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_12.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_12.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_128.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_128.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_131.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_131.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_149.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_149.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_153.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_153.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_18.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_18.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_184.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_184.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_416.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_416.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_420.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_420.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_6.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Model/fbx_更多3d素材szyt_taobao_com_6.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/BS/BS_YeRen.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/BS/BS_YeRen.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/Windcatch/WindCatch_1__windcatch_group19_pTorus14_polySurface295.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/Windcatch/WindCatch_1__windcatch_group19_pTorus14_polySurface295.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/Windcatch/WindCatch_1__windcatch_group21_pTorus14_polySurface277.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/Windcatch/WindCatch_1__windcatch_group21_pTorus14_polySurface277.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/Windcatch/WindCatch_1__windcatch_group22_pTorus14_polySurface478.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/Windcatch/WindCatch_1__windcatch_group22_pTorus14_polySurface478.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/Windcatch/net.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/Windcatch/net.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/god/TrashGod.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/god/TrashGod.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube248.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube248.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube275.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube275.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube279.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube279.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube282.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube282.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube283.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube283.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube284.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube284.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube285.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube285.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube286.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube286.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube293.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube293.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube307.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube307.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube326.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube326.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube330.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCube330.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCylinder167.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCylinder167.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCylinder173.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pCylinder173.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pPlane106.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pPlane106.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pPlane54.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pPlane54.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pTorus60.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pTorus60.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pTorus61.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_pTorus61.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_polySurface20906.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/Tent_white_tents_polySurface20906.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Seq/Leap.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Seq/Leap.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/UI/BP_InvalidZoneUserWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/BP_InvalidZoneUserWidget.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.Build.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -246,7 +283,7 @@
       <workItem from="1712728318333" duration="16421000" />
       <workItem from="1712841080080" duration="5819000" />
       <workItem from="1712847092468" duration="5317000" />
-      <workItem from="1712889578336" duration="4385000" />
+      <workItem from="1712889578336" duration="6919000" />
     </task>
     <servers />
   </component>

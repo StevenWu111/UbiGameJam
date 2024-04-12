@@ -10,10 +10,10 @@
 #include "InputActionValue.h"
 #include "InteractInterface.h"
 #include "Landscape.h"
-#include "LevelSequenceActor.h"
 #include "UbiPlayerController.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Runtime/LevelSequence/Public/LevelSequencePlayer.h"
+#include "LevelSequenceActor.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -106,7 +106,6 @@ void AUbisoftGameJamCharacter::PossessedBy(AController* NewController)
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
-			Subsystem->RemoveAllPlayerMappedKeys();
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
 		}
 	}
