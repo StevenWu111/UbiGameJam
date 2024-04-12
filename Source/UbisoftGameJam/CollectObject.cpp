@@ -33,9 +33,10 @@ void ACollectObject::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AA
 	{
 		if (VideoUI)
 		{
-			//UUserWidget* WidgetInstance = CreateWidget(GetWorld(), VideoUI);
-			//WidgetInstance->AddToViewport();
+			UUserWidget* WidgetInstance = CreateWidget(GetWorld(), VideoUI);
+			WidgetInstance->AddToViewport();
 			GetWorldTimerManager().SetTimer(TimerHandle, this, &ACollectObject::BackToBag, TimeGap, false, TimeGap);
+			this->Destroy();
 		}
 	}
 }

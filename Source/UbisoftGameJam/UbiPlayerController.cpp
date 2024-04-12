@@ -30,6 +30,7 @@ void AUbiPlayerController::SetupCharactersWhenSwitchBack(FVector BagLocation)
 		PlasticBagCharacter->SetLookOutComponent(nullptr);
 		PlasticBagCharacter->SetVisibilityNPhysics(false);
 		PlasticBagCharacter->SetMeshLocation(Location);
+		PlasticBagCharacter->SetActorLocation(Location);
 		PlasticBagCharacter->SetVisibilityNPhysics(true);
 		SwitchCharacter(true);
 		//GetWorldTimerManager().SetTimer(Timer, this, &AUbiPlayerController::SetBagCharacterLocation, 1, false, 1);

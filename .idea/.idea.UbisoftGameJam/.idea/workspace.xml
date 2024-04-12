@@ -9,25 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de21b9a3-3d3c-4955-81e6-1f265d18f68b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam.dir/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/BP_UbiPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/BP_UbiPlayerController.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Input/IMC_CharacterAfterLeap.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Input/IMC_CharacterAfterLeap.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1_Physics.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1_Physics.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/70/37RBBJUY6Y8DE5WEE73RAS.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/70/37RBBJUY6Y8DE5WEE73RAS.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/3/B5/SY4BNF5GOKP4TTR7MM2ZM7.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/TG/KWHF7KVYVHTNYNGMQVWY5E.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/TG/KWHF7KVYVHTNYNGMQVWY5E.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/BP_InvalidZoneUserWidget.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/BP_InvalidZoneUserWidget.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.Build.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +245,8 @@
       <workItem from="1712670761429" duration="2515000" />
       <workItem from="1712728318333" duration="16421000" />
       <workItem from="1712841080080" duration="5819000" />
-      <workItem from="1712847092468" duration="5290000" />
+      <workItem from="1712847092468" duration="5317000" />
+      <workItem from="1712889578336" duration="4385000" />
     </task>
     <servers />
   </component>
@@ -266,16 +256,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp</url>
-          <line>31</line>
-          <option name="timeStamp" value="32" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

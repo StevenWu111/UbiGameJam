@@ -9,6 +9,7 @@
 #include "GameFramework/Controller.h"
 #include "InputActionValue.h"
 #include "InteractInterface.h"
+#include "Landscape.h"
 #include "LevelSequenceActor.h"
 #include "UbiPlayerController.h"
 #include "Kismet/KismetMathLibrary.h"
@@ -86,7 +87,7 @@ void AUbisoftGameJamCharacter::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
 	const float Speed = MeshComponent->GetPhysicsLinearVelocity().Length();
-	GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Speed is %f"),Speed));
+	//GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Speed is %f"),Speed));
 	if (LookOutTargetMesh)
 	{
 		MoveToTargetLocation(LookOutTargetMesh, DeltaSeconds);
@@ -347,6 +348,10 @@ void AUbisoftGameJamCharacter::SetVisibilityNPhysics(bool bIsEnable)
 {
 	MeshComponent->SetSimulatePhysics(bIsEnable);
 	MeshComponent->SetVisibility(bIsEnable);
+	if (bIsEnable)
+	{
+		this->JumpUp(NULL);
+	}
 }
 
 /*
@@ -370,6 +375,11 @@ void AUbisoftGameJamCharacter::SetLookOutComponent(UStaticMeshComponent* LookOut
 void AUbisoftGameJamCharacter::OnComponentHit(UPrimitiveComponent* HitComponent, AActor* OtherActor,
                                               UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
+	if (Cast<ALandscape>(OtherActor))
+	{
+		return;
+	}
+	GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Died")));
 	
 }
 
