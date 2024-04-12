@@ -31,10 +31,22 @@ protected:
 	void OnBeginOverlap(UPrimitiveComponent*OverlappedComponent, AActor*OtherActor,UPrimitiveComponent*OtherComponent,int32 OtherBodyIndex,bool bFromSweep,const FHitResult& SweepResult);
 
 
+
 	UPROPERTY(EditAnywhere)
-	ULevelSequence* NestDropSeq;
+	TSubclassOf<UUserWidget> CollectUI;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	void BackToBag();
+
+	UPROPERTY(EditAnywhere)
+	float TimeGap = 5;
+	FTimerHandle TimerHandle;
+
+	UPROPERTY(EditAnywhere)
+	ULevelSequence* NestDropSeq;
+
 };
+
+

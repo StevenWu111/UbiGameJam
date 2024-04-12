@@ -48,6 +48,8 @@ public:
 	// Sets default values for this character's properties
 	ACharacterAfterLeap();
 
+	void SetVisibility(bool bIsVisible);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

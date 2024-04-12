@@ -11,12 +11,14 @@ void AUbiPlayerController::SwitchCharacter(bool bSwitchToBagCharacter)
 		if (PlasticBagCharacter)
 		{
 			this->Possess(PlasticBagCharacter);
+			CharacterWithPlasticBag->Destroy();
 		}
 	}
 	else
 	{
 		if (CharacterWithPlasticBag)
 		{
+			CharacterWithPlasticBag->SetVisibility(true);
 			this->Possess(CharacterWithPlasticBag);
 		}
 	}

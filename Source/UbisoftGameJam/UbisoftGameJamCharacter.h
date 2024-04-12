@@ -103,6 +103,12 @@ public:
 	void SetCurrInteractActor(AActor* NewActor);
 
 	void SetLookOutComponent(UStaticMeshComponent* LookOutComponent);
+	
+	ULevelSequence* LeapSeq;
+
+	float LeapTimeGap = 2;
+	FVector RespawnLocation;
+	AActor* LeapActorTemp;
 protected:
 
 	/** Called for movement input */
@@ -137,18 +143,22 @@ protected:
 
 	bool bIsReadyToLeap = false;
 
-	UPROPERTY(EditAnywhere)
-	ULevelSequence* LeapSeq;
+	void SetupSwitchCharacter();
+
+
 
 	FTimerHandle InvalidZoneTimerHandle;
+	FTimerHandle TimerAfterLeap;
 
-	FVector RespawnLocation;
+
 	UPROPERTY(EditAnywhere)
 	float RespawnTime = 10.0f;
 	
 	UFUNCTION()
 	void OnSequenceStop();
 
+	UFUNCTION()
+	void OnNestSequenceStop();
 
 
 protected:

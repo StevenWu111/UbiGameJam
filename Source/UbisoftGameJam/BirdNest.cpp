@@ -3,6 +3,9 @@
 
 #include "BirdNest.h"
 
+#include "CharacterAfterLeap.h"
+#include "UbiPlayerController.h"
+#include "Blueprint/UserWidget.h"
 #include "Components/BoxComponent.h"
 
 // Sets default values
@@ -27,7 +30,24 @@ void ABirdNest::BeginPlay()
 void ABirdNest::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComponent, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	
+	if (ACharacterAfterLeap* Character = Cast<ACharacterAfterLeap>(OtherActor))
+	{
+		if (CollectUI)
+		{
+			UUserWidget* WidgetInstance = CreateWidget(GetWorld(), CollectUI);
+			WidgetInstance->AddToViewport();
+			GetWorldTimerManager().SetTimer(TimerHandle, this, &ABirdNest::BackToBag, TimeGap, false, TimeGap);
+		}
+	}
+}
+
+void ABirdNest::BackToBag()
+{
+	if (AUbiPlayerController* CurrPlayerController = Cast<AUbiPlayerController>( GetWorld()->GetFirstPlayerController()))
+	{
+		CurrPlayerController->SetupCharactersWhenSwitchBack(this->GetActorLocation() + FVector(0,0,500));
+		this->Destroy();
+	}
 }
 
 // Called every frame

@@ -48,7 +48,9 @@ void ALeapArea::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor*
 		}
 		PlayerCharacter = Player;
 		Player->SetCurrInteractActor(this);
-
+		Player->LeapSeq = LeapSeq;
+		Player->LeapTimeGap = TimeGap;
+		Player->LeapActorTemp = CharacterTemp;
 		if (AUbiPlayerController* PlayerController = Cast<AUbiPlayerController>(Player->GetController()))
 		{
 			PlayerController->SetCharacterWithPlasticBag(CharacterAfterLeap);
