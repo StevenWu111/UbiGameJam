@@ -9,26 +9,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="de21b9a3-3d3c-4955-81e6-1f265d18f68b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/indexLayout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/projectSettingsUpdater.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vsconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.vsconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEditorPerProjectUserSettings.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditorPerProjectUserSettings.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultMotoricaStudioConfig.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultMotoricaStudioConfig.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Aaron/Map/Land.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Map/Land.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/BP_LeapArea.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/BP_LeapArea.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/NewBlueprint.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Female/AB_AICharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Female/AB_AICharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Female/locom_f_jogging_30f.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Female/locom_f_jogging_30f.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/BP_YeRenLeap.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/BP_YeRenLeap.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/Yeren_1_6_WithBag_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/Yeren_1_6_WithBag_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/lambert1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/lambert1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/peopleColors2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/peopleColors2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam.Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam.Target.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/InteractInterface.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/InteractInterface.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/InteractInterface.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/InteractInterface.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/InvalidZoneUserWidget.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/InvalidZoneUserWidget.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/InvalidZoneUserWidget.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/InvalidZoneUserWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/RespawnLocationUpdateZone.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/RespawnLocationUpdateZone.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/RespawnLocationUpdateZone.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/RespawnLocationUpdateZone.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiGameState.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiGameState.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiGameState.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiGameState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.Build.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.Build.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJam.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJamEditor.Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJamEditor.Target.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UbisoftGameJam.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/UbisoftGameJam.uproject" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,13 +61,21 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/CantEnterZone.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/InteractInterface.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/InteractInterface.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/RespawnLocationUpdateZone.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/RespawnLocationUpdateZone.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -59,7 +92,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.51586205",
+    "XThreadsFramesViewSplitterKey": "0.51519334",
     "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
     "vue.rearranger.settings.migration": "true"
   },
@@ -123,6 +156,16 @@
         <option name="PASS_PARENT_ENVS" value="1" />
         <option name="USE_EXTERNAL_CONSOLE" value="0" />
       </configuration_5>
+      <configuration_6>
+        <option name="CONFIGURATION" value="" />
+        <option name="PLATFORM" value="" />
+        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/UE5.vcxproj" />
+        <option name="EXE_PATH" value="$(TargetPath)" />
+        <option name="PROGRAM_PARAMETERS" value="" />
+        <option name="WORKING_DIRECTORY" value="$(ProjectDir)" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      </configuration_6>
       <option name="DEFAULT_PROJECT_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/UE5.vcxproj" />
       <method v="2">
         <option name="Build" />
@@ -179,6 +222,16 @@
         <option name="PASS_PARENT_ENVS" value="1" />
         <option name="USE_EXTERNAL_CONSOLE" value="0" />
       </configuration_5>
+      <configuration_6>
+        <option name="CONFIGURATION" value="" />
+        <option name="PLATFORM" value="" />
+        <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/UbisoftGameJam.vcxproj" />
+        <option name="EXE_PATH" value="$(TargetPath)" />
+        <option name="PROGRAM_PARAMETERS" value="" />
+        <option name="WORKING_DIRECTORY" value="$(ProjectDir)" />
+        <option name="PASS_PARENT_ENVS" value="1" />
+        <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      </configuration_6>
       <option name="DEFAULT_PROJECT_PATH" value="$PROJECT_DIR$/Intermediate/ProjectFiles/UbisoftGameJam.vcxproj" />
       <method v="2">
         <option name="Build" />
@@ -259,7 +312,7 @@
       <workItem from="1712728318333" duration="16421000" />
       <workItem from="1712841080080" duration="5819000" />
       <workItem from="1712847092468" duration="5317000" />
-      <workItem from="1712889578336" duration="19682000" />
+      <workItem from="1712889578336" duration="20277000" />
     </task>
     <servers />
   </component>
