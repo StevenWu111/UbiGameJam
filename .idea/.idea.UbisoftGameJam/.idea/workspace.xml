@@ -10,23 +10,36 @@
   <component name="ChangeListManager">
     <list default="true" id="de21b9a3-3d3c-4955-81e6-1f265d18f68b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UbisoftGameJam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultGame.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultGame.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Map/Intro.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Map/Intro.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Aaron/Map/Land.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Map/Land.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/BP_LeapArea.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/BP_LeapArea.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BP/NewBlueprint.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Bag/PlasticBag_New_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Female/AB_AICharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Female/AB_AICharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Female/locom_f_jogging_30f.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Female/locom_f_jogging_30f.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_114.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_114.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_117.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_117.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_126.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_126.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_129.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_129.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_147.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_147.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_151.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_151.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_414.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_414.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_418.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/Material/ALPINE_WOODLANDS_MAT_MAIN_001_418.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/UI/Mainmenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/UI/Mainmenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/UI/OptionDuringame_UI.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/UI/OptionDuringame_UI.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/UI/OptionMenu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/UI/OptionMenu.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Aaron/UI/UI_IntroducationVideo.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Aaron/UI/UI_IntroducationVideo.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/BP_UbiPlayerController.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/BP_UbiPlayerController.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/BP/BP_UbisoftGameJamGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/BP/BP_UbisoftGameJamGameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/BP_YeRenLeap.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/BP_YeRenLeap.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/Yeren_1_6_WithBag_1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/WithBag/Yeren_1_6_WithBag_1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/lambert1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/lambert1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/YeRen/peopleColors2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/YeRen/peopleColors2.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/BirdNest.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CharacterAfterLeap.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/LeapArea.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/tent/plastic_Tent.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/tent/plastic_Tent.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Li/trash/metal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Li/trash/metal.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Seq/NestDrop2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Seq/NestDrop2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Seq/Videos/bc5f4b6485874e0b7e83b8a53d908513.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Input/Actions/IA_Jump.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Input/Actions/IA_Jump.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Input/IMC_Default.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Input/IMC_Default.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/UI/UI_Video.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/UI/UI_Video.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/CollectObject.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbiPlayerController.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UbisoftGameJam/UbisoftGameJamCharacter.h" afterDir="false" />
     </list>
@@ -54,23 +67,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "XThreadsFramesViewSplitterKey": "0.51586205",
-    "settings.editor.selected.configurable": "SolutionBuilderGeneralOptionsPage",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.51586205&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SolutionBuilderGeneralOptionsPage&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\AUFB\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\AUFB\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\AUFB\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\AUFB\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\AUFB\\AppData\\Roaming\\JetBrains\\Rider2022.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\AUFB\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="C++ Project.UbisoftGameJam">
     <configuration name="UE5" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -260,6 +273,14 @@
       <workItem from="1712841080080" duration="5819000" />
       <workItem from="1712847092468" duration="5317000" />
       <workItem from="1712889578336" duration="18925000" />
+      <workItem from="1712926666771" duration="12311000" />
+      <workItem from="1713108610757" duration="17000" />
+      <workItem from="1713364088520" duration="13000" />
+      <workItem from="1713365703499" duration="993000" />
+      <workItem from="1713367730198" duration="1873000" />
+      <workItem from="1713422275300" duration="13000" />
+      <workItem from="1713601627687" duration="2382000" />
+      <workItem from="1713862559469" duration="3436000" />
     </task>
     <servers />
   </component>

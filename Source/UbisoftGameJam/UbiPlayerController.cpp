@@ -35,6 +35,16 @@ void AUbiPlayerController::SetupCharactersWhenSwitchBack(FVector BagLocation)
 		PlasticBagCharacter->SetActorLocation(Location);
 		PlasticBagCharacter->SetVisibilityNPhysics(true);
 		SwitchCharacter(true);
+		FoundNum++;
+		if (FoundNum == 2)
+		{
+			this->SetPause(true);
+			if (UIEndClass)
+			{
+				UUserWidget* WidgetInstance = CreateWidget(GetWorld(), UIEndClass);
+				WidgetInstance->AddToViewport();
+			}
+		}
 		//GetWorldTimerManager().SetTimer(Timer, this, &AUbiPlayerController::SetBagCharacterLocation, 1, false, 1);
 	}
 }

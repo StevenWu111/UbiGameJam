@@ -129,13 +129,13 @@ void AUbisoftGameJamCharacter::SetupPlayerInputComponent(UInputComponent* Player
 	if (EnhancedInputComponent) {
 		
 		// Jumping
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::JumpUp);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::JumpUp);
 
 		// Moving
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::Move);
-		EnhancedInputComponent->BindAction(MoveBackAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveBack);
-		EnhancedInputComponent->BindAction(MoveLeftAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveLeft);
-		EnhancedInputComponent->BindAction(MoveRightAction, ETriggerEvent::Started, this, &AUbisoftGameJamCharacter::MoveRight);
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::Move);
+		EnhancedInputComponent->BindAction(MoveBackAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::MoveBack);
+		EnhancedInputComponent->BindAction(MoveLeftAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::MoveLeft);
+		EnhancedInputComponent->BindAction(MoveRightAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::MoveRight);
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AUbisoftGameJamCharacter::Look);
@@ -156,7 +156,7 @@ void AUbisoftGameJamCharacter::Move(const FInputActionValue& Value)
 		const FVector ImpulseLocation = FollowCamera->GetComponentLocation();
 		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(500);
 		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
-		MeshComponent->AddRadialImpulse(ImpulseLocation, 600, 120,RIF_Linear, true);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 600, 10,RIF_Linear, true);
 	}
 }
 
@@ -168,9 +168,9 @@ void AUbisoftGameJamCharacter::MoveBack(const FInputActionValue& Value)
 		FVector Direction = MeshComponent->GetComponentLocation() - CameraLocation;
 		Direction.Normalize();
 		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() + Direction * 100;
-		FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
-		DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
-		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 100,RIF_Linear, true);
+		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
+		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 5,RIF_Linear, true);
 	}
 }
 
@@ -181,9 +181,9 @@ void AUbisoftGameJamCharacter::MoveLeft(const FInputActionValue& Value)
 		FVector Direction = -FollowCamera->GetRightVector();
 		Direction.Normalize();
 		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() + Direction * 100;
-		FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
-		DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
-		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 100,RIF_Linear, true);
+		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
+		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 5,RIF_Linear, true);
 	}
 }
 
@@ -194,9 +194,9 @@ void AUbisoftGameJamCharacter::MoveRight(const FInputActionValue& Value)
 		FVector Direction = FollowCamera->GetRightVector();
 		Direction.Normalize();
 		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() + Direction * 100;
-		FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
-		DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
-		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 100,RIF_Linear, true);
+		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(200);
+		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 200, 5,RIF_Linear, true);
 	}
 }
 
@@ -207,7 +207,7 @@ void AUbisoftGameJamCharacter::JumpUp(const FInputActionValue& Value)
 		const FVector ImpulseLocation = MeshComponent->GetComponentLocation() - FVector(0,0,200);
 		//FCollisionShape ExplosionSphere = FCollisionShape::MakeSphere(400);
 		//DrawDebugSphere(GetWorld(), ImpulseLocation, ExplosionSphere.GetSphereRadius(), 50, FColor::Red, false, 2.0f, 0,0);
-		MeshComponent->AddRadialImpulse(ImpulseLocation, 400, 130,RIF_Linear, true);
+		MeshComponent->AddRadialImpulse(ImpulseLocation, 400, 5,RIF_Linear, true);
 	}
 }
 
@@ -270,7 +270,7 @@ void AUbisoftGameJamCharacter::MoveToTargetLocation(UStaticMeshComponent* Target
 		const FVector TargetLocation = TargetMeshRef->GetComponentLocation();
 		const FRotator TargetRotation = TargetMeshRef->GetComponentRotation();
 		FVector Direction = TargetLocation - CurrLocation;
-		if (Direction.Length() <= 0.3 && TargetRotation.Equals(MeshComponent->GetComponentRotation(), 1))
+		if (Direction.Length() <= 1 && TargetRotation.Equals(MeshComponent->GetComponentRotation(), 1))
 		{
 			RemoveUI();
 			CreateUI(LeapUI);
@@ -309,6 +309,11 @@ void AUbisoftGameJamCharacter::RemoveUI()
 	{
 		WidgetInstance->RemoveFromParent();
 		WidgetInstance = nullptr;
+	}
+	if (DiedUi)
+	{
+		DiedUi->RemoveFromParent();
+		DiedUi = nullptr;
 	}
 }
 
@@ -392,7 +397,15 @@ void AUbisoftGameJamCharacter::OnComponentHit(UPrimitiveComponent* HitComponent,
 		}
 		return;
 	}
-	GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Died")));
+	//GEngine->AddOnScreenDebugMessage(-1,2.0f,FColor::Red,FString::Printf(TEXT("Died")));
+	if (DiedUIClass)
+	{
+		DiedUi = CreateWidget(GetWorld(), DiedUIClass);
+		DiedUi->AddToViewport();
+		MeshComponent->SetSimulatePhysics(false);
+		MeshComponent->SetWorldLocation(RespawnLocation);
+	}
+	GetWorldTimerManager().SetTimer(SpawnTimer, this, &AUbisoftGameJamCharacter::Respawn, 5.0f, false, 5.0f);
 	
 }
 

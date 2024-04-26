@@ -160,6 +160,14 @@ protected:
 	UFUNCTION()
 	void OnNestSequenceStop();
 
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> DiedUIClass;
+
+	UUserWidget* DiedUi;
+
+	FTimerHandle SpawnTimer;
+
+
 
 protected:
 	// APawn interface

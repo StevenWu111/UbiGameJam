@@ -35,6 +35,13 @@ protected:
 	ACharacterAfterLeap* CharacterWithPlasticBag;
 
 	virtual void BeginPlay() override;;
+
+	int FoundNum = 0;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<UUserWidget> UIEndClass;
+
+	UUserWidget* UIEnd;
 };
 
 

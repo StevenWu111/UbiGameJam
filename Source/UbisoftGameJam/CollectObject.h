@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Components/BoxComponent.h"
 #include "Components/SphereComponent.h"
 #include "GameFramework/Actor.h"
 #include "CollectObject.generated.h"
@@ -17,10 +18,7 @@ public:
 	ACollectObject();
 
 	UPROPERTY(EditAnywhere)
-	USphereComponent* Collider;
-
-	UPROPERTY(EditAnywhere)
-	UStaticMeshComponent* MeshComponent;
+	UBoxComponent* Collider;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UUserWidget> VideoUI;
@@ -28,13 +26,12 @@ public:
 	UPROPERTY(EditAnywhere)
 	float TimeGap = 5;
 	
+	UFUNCTION()
+	void OnBeginOverlap(UPrimitiveComponent*OverlappedComponent, AActor*OtherActor,UPrimitiveComponent*OtherComponent,int32 OtherBodyIndex,bool bFromSweep,const FHitResult& SweepResult);
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
-	UFUNCTION()
-	void OnBeginOverlap(UPrimitiveComponent*OverlappedComponent, AActor*OtherActor,UPrimitiveComponent*OtherComponent,int32 OtherBodyIndex,bool bFromSweep,const FHitResult& SweepResult);
 	
 	void BackToBag();
 
